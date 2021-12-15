@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, FlatList, SafeAreaView, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { v4 as uuidv4 } from 'uuid';
+import uuid from 'react-native-uuid';
 import Header from './components/Header';
 import Task from './components/Task';
 import AddTask from './components/AddTask';
@@ -17,7 +17,7 @@ export default function App() {
       Alert.alert('No task?', 'Please add a task.');
     } else {
       setTask(prevTasks => {
-        return [{ task: text, id: uuidv4() }, ...prevTasks]
+        return [{ task: text, id: uuid.v4() }, ...prevTasks]
       });
     }
   };
